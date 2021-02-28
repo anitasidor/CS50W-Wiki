@@ -8,3 +8,9 @@ def index(request):
         "entries": util.list_entries()
     })
 
+# Define view that you will call in urls.py later, that will show an appropriate page while going to wiki/TITLE
+def wiki(request, title):
+    return render(request, "encyclopedia/entry.html", {
+        "entry": util.get_entry(title),
+        "title": title
+    })
