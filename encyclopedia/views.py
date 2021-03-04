@@ -54,3 +54,10 @@ def search(request):
             "entry":util.get_entry(search_query),
             "title":search_query
         })
+
+
+#Creating new page
+
+def newPage(request):
+
+    return render(request, "encyclopedia/newPage.html")

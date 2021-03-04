@@ -1,0 +1,20 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    New Page
+{% endblock %}
+
+{% block body %}
+    <h1>Create new page</h1>
+    <form action="POST">
+    <div class="mb-3">
+        <input type="text" class="form-control" id="newTitle" placeholder="Title" style="width: 80%;">
+      </div>
+      <div class="form-floating">
+        <textarea class="form-control" placeholder="Enter content of the page in MARKDOWN" id="floatingTextarea2" style="width: 80%; height: 70vh;"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+</div>
+
+{% endblock %}
