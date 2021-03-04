@@ -28,6 +28,28 @@ def search(request):
     if request.method == "GET":
         #access what user searched for
         search_query = request.GET.get("q")
+
+        #if search query is not in database
+        if util.get_entry(search_query) == None:
+
+            #get all the entries in db in form of a list
+            all_entries = util.list_entries()
+
+            #initiate list that you will append entries that have query as a substring
+            substring_entries = []
+
+            #check which entry has a query substring
+            for entry in all_entries:
+                if search_query in entry:
+                    substring_entries.append(entry)
+
+            return render(request, "encyclopedia/search.html", {
+                "title":search_query,
+                "substring_entries":substring_entries
+            })
+
+
+
         return render(request, "encyclopedia/entry.html", {
             "entry":util.get_entry(search_query),
             "title":search_query
