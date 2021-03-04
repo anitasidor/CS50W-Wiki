@@ -8,8 +8,10 @@
     <h1>We know nothing about "{{ title }}"</h1>
 
     <p>Here are some things we do know about:</p>
-        <li>
-            <li>{{ substring_entries }}</li>
-        </li>
+        <ul>
+            {% for entry in substring_entries %}
+            <li><a href="{% url 'encyclopedia:wiki' entry%}">{{ entry }}</a></li>
+        {% endfor %}
+        </ul>
 
 {% endblock %}
