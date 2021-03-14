@@ -69,4 +69,15 @@ def newPage(request):
 
         #if entry already existis
         if util.get_entry(request.POST.get("newTitle")) != None:
-            return render (request, "encyclopedia/error404.html")
+            return render (request, "encyclopedia/errorExist.html")
+
+        #if it doesn't exist save it and go to the newly created page
+        else:
+            title = request.POST.get("newTitle")
+            content = request.POST.get("content")
+            util.save_entry(title, content)
+
+            return render(request, "encyclopedia/entry.html", {
+            "entry":util.get_entry(title),
+            "title":title
+        })
