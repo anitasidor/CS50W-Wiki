@@ -56,8 +56,7 @@ def search(request):
         })
 
 
-#Creating new page
-
+#Create new page
 def newPage(request):
 
     #if "Create New Page" is clicked
@@ -81,3 +80,7 @@ def newPage(request):
             "entry":util.get_entry(title),
             "title":title
         })
+
+#Edit entries
+def edit(request):
+    return render(request, "encyclopedia/edit.html")
