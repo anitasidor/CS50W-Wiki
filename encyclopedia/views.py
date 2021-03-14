@@ -60,4 +60,13 @@ def search(request):
 
 def newPage(request):
 
-    return render(request, "encyclopedia/newPage.html")
+    #if "Create New Page" is clicked
+    if request.method == "GET":
+        return render(request, "encyclopedia/newPage.html")
+
+    #if form with new entry is submitted
+    if request.method == "POST":
+
+        #if entry already existis
+        if util.get_entry(request.POST.get("newTitle")) != None:
+            return render (request, "encyclopedia/error404.html")
