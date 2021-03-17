@@ -83,6 +83,8 @@ def newPage(request):
 
 #Edit entries
 def edit(request, title):
+
+    #if edit next to a title is clicked
     return render(request, "encyclopedia/edit.html", {
         "title":title
     })
