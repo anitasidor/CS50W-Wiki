@@ -9,15 +9,6 @@
     <h1>Edit {{ title }}</h1>
     <form method="POST">
       {% csrf_token %}
-      <div class="mb-3">
-        <input
-        type="text"
-        class="form-control"
-        name="newTitle"
-        id="newTitle"
-        placeholder="Title"
-        style="width: 80%;">
-      </div>
       <div class="form-floating">
         <textarea
         class="form-control"
@@ -25,6 +16,8 @@
         placeholder="Enter content of the page in MARKDOWN"
         id="floatingTextarea2"
         style="width: 80%; height: 70vh;">
+        <textarea>
+          dupa
         </textarea>
       </div>
       <button type="submit" class="btn btn-primary">Save</button>

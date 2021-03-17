@@ -8,16 +8,9 @@
 {% block body %}
 <h1>
   {{ title }}
-  <a
-    href="{% url 'encyclopedia:edit' %}"
-    value="{{ title }}"
-    #does
-    it
-    even
-    work?
-    style="font-size: 18px"
-    >Edit</a
-  >
+  <a href="{% url 'encyclopedia:edit' title %}" style="font-size: 18px"
+    >Edit
+  </a>
 </h1>
 
 <p>{{ entry }}</p>
