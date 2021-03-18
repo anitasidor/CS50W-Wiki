@@ -1,5 +1,5 @@
 from django.shortcuts import render
-
+import random
 from . import util
 
 
@@ -106,3 +106,15 @@ def edit(request, title):
             "entry":util.get_entry(title),
             "title":title
         })
+
+def randomPage(request):
+
+    #get random title
+    entries = util.list_entries()
+    title = random.choice(entries)
+
+    #show it to the user
+    return render(request, "encyclopedia/entry.html", {
+            "entry":util.get_entry(title),
+            "title":title
+    })
