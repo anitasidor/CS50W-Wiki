@@ -84,7 +84,25 @@ def newPage(request):
 #Edit entries
 def edit(request, title):
 
-    #if edit next to a title is clicked
-    return render(request, "encyclopedia/edit.html", {
-        "title":title
-    })
+    #when user wants to edit entry
+    if request.method == "GET":
+
+        #if edit next to a title is clicked
+        return render(request, "encyclopedia/edit.html", {
+            "title":title,
+            "entry":util.get_entry(title)
+        })
+
+    #if user saved edited entry
+    if request.method == "POST":
+
+        #save edited entry
+        title = title
+        content = request.POST.get("content")
+        util.save_entry(title, content)
+
+        #redirect user to the newly edited entry
+        return render(request, "encyclopedia/entry.html", {
+            "entry":util.get_entry(title),
+            "title":title
+        })

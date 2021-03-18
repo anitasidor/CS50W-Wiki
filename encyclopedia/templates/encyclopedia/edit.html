@@ -2,7 +2,7 @@
 {% extends "encyclopedia/layout.html" %}
 
 {% block title %}
-    Edit
+    Edit {{ title }}
 {% endblock %}
 
 {% block body %}
@@ -13,12 +13,8 @@
         <textarea
         class="form-control"
         name="content"
-        placeholder="Enter content of the page in MARKDOWN"
-        id="floatingTextarea2"
-        style="width: 80%; height: 70vh;">
-        <textarea>
-          dupa -> tu zmień
-        </textarea>
+        id="exampleFormControlTextarea1"
+        style="width: 80%; height: 70vh;">{{ entry }}</textarea>
       </div>
       <button type="submit" class="btn btn-primary">Save</button>
     </form>
