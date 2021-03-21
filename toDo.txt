@@ -1,0 +1,5 @@
+add other message when user searched for something and it is not in the database
+
+add case insensitive searching
+
+add delete option
