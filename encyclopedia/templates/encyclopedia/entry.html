@@ -6,12 +6,10 @@
 {% endblock %}
 
 {% block body %}
-
 {{ entry|safe }}
 <p>
   <a href="{% url 'encyclopedia:edit' title %}" style="font-size: 18px"
     >Edit
   </a>
 </p>
-
 {% endblock %}
