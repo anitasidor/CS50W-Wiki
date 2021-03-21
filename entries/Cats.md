@@ -1,8 +1,7 @@
-# Cat
+# Cats
 
-Cat is a small mammal that **loves to purr**.
-Cats are made of:
-* fur
-* paws
-* purring
-* belly
+Cats are small mammals that **loves to purr**.
+
+## Lions
+
+Lions are also cats but much bigger.
