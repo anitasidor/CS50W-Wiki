@@ -1,1 +1,0 @@
-Cat is small and mighty blablabla

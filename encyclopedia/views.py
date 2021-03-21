@@ -4,7 +4,7 @@ from . import util
 from markdown2 import Markdown
 
 markdowner = Markdown()
-markdowner.convert("*boo!*")
+
 
 
 def index(request):
@@ -22,7 +22,7 @@ def wiki(request, title):
 
     #if the user typed in the query in url
     return render(request, "encyclopedia/entry.html", {
-        "entry": util.get_entry(title),
+        "entry": markdowner.convert(util.get_entry(title)),
         "title": title
         })
 
@@ -55,7 +55,7 @@ def search(request):
 
 
         return render(request, "encyclopedia/entry.html", {
-            "entry":util.get_entry(search_query),
+            "entry":markdowner.convert(util.get_entry(search_query)),
             "title":search_query
         })
 
@@ -81,7 +81,7 @@ def newPage(request):
             util.save_entry(title, content)
 
             return render(request, "encyclopedia/entry.html", {
-            "entry":util.get_entry(title),
+            "entry":markdowner.convert(util.get_entry(title)),
             "title":title
         })
 
@@ -107,7 +107,7 @@ def edit(request, title):
 
         #redirect user to the newly edited entry
         return render(request, "encyclopedia/entry.html", {
-            "entry":util.get_entry(title),
+            "entry":markdowner.convert(util.get_entry(title)),
             "title":title
         })
 
@@ -119,6 +119,6 @@ def randomPage(request):
 
     #show it to the user
     return render(request, "encyclopedia/entry.html", {
-            "entry":util.get_entry(title),
+            "entry":markdowner.convert(util.get_entry(title)),
             "title":title
     })
